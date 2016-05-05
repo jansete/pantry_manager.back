@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/jansete/pantry_manager.back/issues"
   },
-  "homepage": "https://github.com/jansete/pantry_manager.back#readme"
+  "homepage": "https://github.com/jansete/pantry_manager.back#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "expect": "^1.19.0",
+    "mocha": "^2.4.5"
+  }
 }
