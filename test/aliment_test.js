@@ -1,5 +1,6 @@
 var assert = require('chai').assert;
 var Aliment = require('../src/classes/aliment.js');
+var AlimentCollection = require('../src/classes/alimentCollection.js');
 
 describe('Alimento', function() {
 
@@ -26,6 +27,18 @@ describe('Alimento', function() {
     assert.ok(aliment.getCreatedDate());
     assert(typeof aliment.getCreatedDate() == 'number');
     assert.equal(aliment.getCreatedDate(), created);
+  });
+
+});
+
+describe('Colección de alimentos', function() {
+
+  it('Al instanciar devuelve un objeto', function () {
+    var alimentCollection = new AlimentCollection();
+    assert(typeof alimentCollection == 'object');
+  });
+
+  it('La colección tiene un alimento y una cantidad', function () {
   });
 
 });
