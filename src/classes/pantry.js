@@ -40,8 +40,8 @@ var pantry = function(id, name, capacity) {
     }
     else {
       this._aliments.push(alimentCollection);
-      var capacityAvaiable = this.getCapacityAvailable() - alimentCollection.getQuantity();
-      this._setCapacityAvailable(capacityAvaiable);
+      var capacityAvailable = this.getCapacityAvailable() - alimentCollection.getQuantity();
+      this._setCapacityAvailable(capacityAvailable);
       return true;
     }
   };
