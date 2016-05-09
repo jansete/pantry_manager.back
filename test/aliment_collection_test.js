@@ -15,11 +15,13 @@ describe('Colección de alimentos', function() {
     var aliment = new Aliment(alimentId, name);
     var alimentCollectionId = 1;
     var quantity = 5;
-    var alimentCollecion = new AlimentCollection(alimentCollectionId, aliment, quantity);
-    assert.ok(alimentCollecion.getId());
-    assert(typeof alimentCollecion.getId() == 'number');
+    var alimentCollection = new AlimentCollection(alimentCollectionId, aliment, quantity);
+    assert.ok(alimentCollection.getId());
+    assert(typeof alimentCollection.getId() == 'number');
     assert.ok(alimentCollection.getAliment());
-
+    assert(typeof alimentCollection.getAliment() == 'object');
+    assert.ok(alimentCollection.getQuantity());
+    assert(typeof alimentCollection.getQuantity() == 'number');
   });
 
 });

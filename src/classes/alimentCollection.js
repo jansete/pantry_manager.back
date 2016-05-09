@@ -10,13 +10,17 @@ var alimentCollection = function(id, aliment, quantity) {
 
   this.getId = function() {
     return this._id;
-  }
+  };
 
   this.getAliment = function() {
-    
-  }
+    return this._aliment;
+  };
+
+  this.getQuantity = function() {
+    return this._quantity;
+  };
 
   return this;
-}
+};
 
 module.exports = alimentCollection;
