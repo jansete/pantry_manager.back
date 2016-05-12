@@ -18,6 +18,15 @@ describe('Alimento', function() {
     assert(typeof aliment.getName() == 'string');
   });
 
+  it('Los atributos del alimento son privados', function() {
+    var id = 2;
+    var name = 'Calabacín';
+    var aliment = new Aliment(id, name);
+    assert.equal(aliment._id, undefined);
+    assert.equal(aliment._name, undefined);
+    assert.equal(aliment._created, undefined);
+  });
+
   it('El alimento tiene una fecha de creación válida', function() {
     var id = 3;
     var name = 'Tomate';
