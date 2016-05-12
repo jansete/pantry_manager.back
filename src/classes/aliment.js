@@ -1,21 +1,26 @@
-var aliment = function(id, name) {
-  this._id = id;
-  this._name = name;
-  this._created = Math.floor(Date.now() / 1000);
+var aliment = (function() {
+  var _id, _name, _created;
 
-  return this;
-};
+  function constructor(id, name) {
+    _id = id;
+    _name = name;
+    _created = Math.floor(Date.now() / 1000);
+  };
 
-aliment.prototype.getId = function() {
-  return this._id;
-};
+  constructor.prototype.getId = function() {
+    return _id;
+  };
 
-aliment.prototype.getName = function() {
-  return this._name;
-};
+  constructor.prototype.getName = function() {
+    return _name;
+  };
 
-aliment.prototype.getCreatedDate = function() {
-  return this._created;
-};
+  constructor.prototype.getCreatedDate = function() {
+    return _created;
+  };
+
+  return constructor;
+})();
+ 
 
 module.exports = aliment;
