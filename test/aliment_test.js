@@ -43,8 +43,6 @@ describe('Alimento', function() {
     assert.equal(naranja.getName(), name_naranja);
   });
 
-
-
   it('El alimento tiene una fecha de creación válida', function() {
     var id = 3;
     var name = 'Tomate';
