@@ -1,21 +1,27 @@
-var alimentCollection = function(id, aliment, quantity) {
-  this._id = id;
-  this._aliment = aliment;
-  this._quantity = quantity;
-  
-  return this;
-};
+var privateProps = new WeakMap();
 
-alimentCollection.prototype.getId = function() {
-  return this._id;
-};
+var alimentCollection = (function() {
+  function constructor(id, aliment, quantity) {
+    privateProps.set(this, {
+      _id: id,
+      _aliment: aliment,
+      _quantity: quantity
+    });
+  };
 
-alimentCollection.prototype.getAliment = function() {
-  return this._aliment;
-};
+  constructor.prototype.getId = function() {
+    return privateProps.get(this)._id;
+  };
 
-alimentCollection.prototype.getQuantity = function() {
-  return this._quantity;
-};
+  constructor.prototype.getAliment = function() {
+    return privateProps.get(this)._aliment;
+  };
+
+  constructor.prototype.getQuantity = function() {
+    return privateProps.get(this)._quantity;
+  };
+
+  return constructor;
+})()
 
 module.exports = alimentCollection;

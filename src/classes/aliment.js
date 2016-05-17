@@ -2,11 +2,11 @@ var privateProps = new WeakMap();
 
 var aliment = (function() {
   function constructor(id, name) {
-      privateProps.set(this, {
-            _id: id,
-            _name: name,
-            _created: Math.floor(Date.now() / 1000)
-      });
+    privateProps.set(this, {
+      _id: id,
+      _name: name,
+      _created: Math.floor(Date.now() / 1000)
+    });
   };
 
   constructor.prototype.getId = function() {
