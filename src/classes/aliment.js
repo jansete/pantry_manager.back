@@ -1,6 +1,7 @@
 var privateProps = new WeakMap();
 
 var aliment = (function() {
+
   function constructor(id, name) {
     privateProps.set(this, {
       _id: id,

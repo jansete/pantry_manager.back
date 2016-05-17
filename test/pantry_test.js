@@ -86,6 +86,5 @@ describe('Despensa', function() {
     var quantity = 5;
     return new AlimentCollection(alimentCollectionId, aliment, quantity);
   }
-    
 
 });

@@ -1,6 +1,7 @@
 var privateProps = new WeakMap();
 
 var pantry = (function() {
+
   function constructor(id, name, capacity) {
     privateProps.set(this, {
       _id: id,
