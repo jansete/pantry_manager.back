@@ -7,7 +7,7 @@ var aliment = (function() {
       _name: name,
       _created: Math.floor(Date.now() / 1000)
     });
-  };
+  }
 
   constructor.prototype.getId = function() {
     return privateProps.get(this)._id;

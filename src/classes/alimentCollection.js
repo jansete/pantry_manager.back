@@ -22,6 +22,6 @@ var alimentCollection = (function() {
   };
 
   return constructor;
-})()
+})();
 
 module.exports = alimentCollection;
