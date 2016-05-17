@@ -32,9 +32,7 @@ var pantry = (function() {
   };
 
   constructor.prototype._setCapacityAvailable = function (capacityAvailable) {
-    var _privatePantry = privateProps.get(this);
-    _privatePantry._capacityAvailable = capacityAvailable;
-    privateProps.set(this, _privatePantry);
+    this._set('capacityAvailable', capacityAvailable);
   };
 
   constructor.prototype.setAliments = function (alimentCollection) {
@@ -42,14 +40,23 @@ var pantry = (function() {
       return false;
     }
     else {
-      var _privatePantry = privateProps.get(this);
-      _privatePantry._aliments.push(alimentCollection);
-      privateProps.set(this, _privatePantry);
-
+      this._push('aliments', alimentCollection);
       var capacityAvailable = this.getCapacityAvailable() - alimentCollection.getQuantity();
       this._setCapacityAvailable(capacityAvailable);
       return true;
     }
+  };
+
+  constructor.prototype._set = function (key, value) {
+    var _privatePantry = privateProps.get(this);
+    _privatePantry['_' + key] = value;
+    privateProps.set(this, _privatePantry);
+  };
+
+  constructor.prototype._push = function (key, object) {
+    var _privatePantry = privateProps.get(this);
+    _privatePantry['_' + key].push(object);
+    privateProps.set(this, _privatePantry);
   };
 
   return constructor;
