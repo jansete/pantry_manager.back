@@ -31,33 +31,33 @@ var pantry = (function() {
     return privateProps.get(this)._aliments;
   };
 
-  constructor.prototype._setCapacityAvailable = function (capacityAvailable) {
-    this._set('capacityAvailable', capacityAvailable);
-  };
-
   constructor.prototype.setAliments = function (alimentCollection) {
     if (alimentCollection.getQuantity() > this.getCapacityAvailable()) {
       return false;
     }
     else {
-      this._push('aliments', alimentCollection);
+      _push.apply(this, ['aliments', alimentCollection]);
       var capacityAvailable = this.getCapacityAvailable() - alimentCollection.getQuantity();
-      this._setCapacityAvailable(capacityAvailable);
+      _setCapacityAvailable.apply(this, [capacityAvailable]);
       return true;
     }
   };
 
-  constructor.prototype._set = function (key, value) {
+  function _setCapacityAvailable(capacityAvailable) {
+    _set.apply(this, ['capacityAvailable', capacityAvailable]);
+  }
+
+  function _set(key, value) {
     var _privatePantry = privateProps.get(this);
     _privatePantry['_' + key] = value;
     privateProps.set(this, _privatePantry);
-  };
+  }
 
-  constructor.prototype._push = function (key, object) {
+  function _push(key, object) {
     var _privatePantry = privateProps.get(this);
     _privatePantry['_' + key].push(object);
     privateProps.set(this, _privatePantry);
-  };
+  }
 
   return constructor;
 })();
